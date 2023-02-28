@@ -1,4 +1,3 @@
-# import statements
 from tkinter import *
 from tkinter.messagebox import *
 

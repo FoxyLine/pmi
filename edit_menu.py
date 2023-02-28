@@ -105,7 +105,6 @@ def main(root, text, menubar):
     )
     editmenu.add_command(label=root.t.undo, command=objEdit.undo, accelerator="Ctrl+Z")
     editmenu.add_command(label=root.t.redo, command=objEdit.redo, accelerator="Ctrl+Y")
-    editmenu.add_command(label=root.t.find, command=objEdit.find, accelerator="Ctrl+F")
     editmenu.add_separator()
     editmenu.add_command(
         label=root.t.select_all, command=objEdit.selectAll, accelerator="Ctrl+A"

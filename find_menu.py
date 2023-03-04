@@ -37,7 +37,7 @@ class Edit:
 
     def find(self, *args):
         self.text.tag_remove("found", "1.0", END)
-        target = askstring("Find", "Search String:")
+        target = askstring(self.root.t.find, self.root.t.search_string)
 
         if target:
             idx = "1.0"
@@ -52,7 +52,7 @@ class Edit:
 
     def find(self, *args):
         self.text.tag_remove("found", "1.0", END)
-        target = askstring("Find", "Search String:")
+        target = askstring(self.root.t.find, self.root.t.search_string)
 
         if target:
             idx = "1.0"

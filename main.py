@@ -49,7 +49,7 @@ def run():
         "default": {
             "fg": "#000000",
             "bg": "white",
-            "status_bar": "#000000",
+            "status_bar": "white",
             "keyword": "blue",
             "string_literal": "red",
             "string_literal_other": "#BF9000",
@@ -60,7 +60,6 @@ def run():
             "bg": "#343434",
             "fg": "white",
             "status_bar": "#0D0D0D",
-
             "font_color": "white",
             "keyword": "#3D83D6",
             "string_literal": "#C95F5F",
@@ -72,7 +71,6 @@ def run():
             "bg": "#190D2C",
             "status_bar": "#469A58",
             "fg": "white",
-
             "keyword": "#0075FF",
             "string_literal": "#FF5925",
             "string_literal_other": "#FFF500",

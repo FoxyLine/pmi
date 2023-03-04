@@ -20,7 +20,7 @@ from pygments.lexers import PythonLexer, ErlangLexer, TypeScriptLexer
 from pygments.token import Token
 
 
-
+text_to_reboot = ""
 def run():
     config = configparser.ConfigParser()
     config.read("settings.ini")
@@ -99,7 +99,6 @@ def run():
 
         text.edit_modified(0)
 
-
     def get_text_coord(s: str, i: int):
         for row_number, line in enumerate(s.splitlines(keepends=True), 1):
             if i < len(line):
@@ -112,6 +111,8 @@ def run():
     root = Tk()
 
     def change_lang(lang):
+        global text_to_reboot
+        text_to_reboot = text.get("1.0", END)
         root.destroy()
         config.set("settings", "lang", lang)
         with open("settings.ini", "w") as configfile:
@@ -120,12 +121,16 @@ def run():
         root.update()
 
     def change_syntax(sntx):
+        global text_to_reboot
+        text_to_reboot = text.get("1.0", END)
         root.destroy()
         config.set("settings", "syntax", sntx)
         with open("settings.ini", "w") as configfile:
             config.write(configfile)
 
     def change_theme(theme):
+        global text_to_reboot
+        text_to_reboot = text.get("1.0", END)
         root.destroy()
         config.set("settings", "theme", theme)
         with open("settings.ini", "w") as configfile:
@@ -159,6 +164,7 @@ def run():
         padx=3,
         undo=True,
     )
+    text.insert("1.0", text_to_reboot)
     text.pack(fill=Y, expand=1)
     text.bind("<<Modified>>", lambda e: on_edit(text))
 
@@ -177,7 +183,7 @@ def run():
         time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         row, col = text.index(INSERT).split(".")
         statusbar_var.set(f"Строка {row}. Время {time}")
-        root.after(1000, updater)
+        root.after(100, updater)
 
     text.focus_set()
     text.bind("<KeyPress>", func=change_status_bar)

@@ -196,6 +196,7 @@ def run():
 
     updater()
     root.protocol("WM_DELETE_WINDOW", lambda: sys.exit(1))
+    root.iconphoto(False, tk.PhotoImage(file='icon-file.png'))
     root.mainloop()
 
 

@@ -117,11 +117,11 @@ class Trans:
 
     @property
     def oops(self):
-        return "Ой)" if self.lang == "ru" else "Opps..."
+        return "Ой!" if self.lang == "ru" else "Oops..."
 
     @property
     def unable_to_save(self):
-        return "Не мочь в сохранение" if self.lang == "ru" else "Unable to save file"
+        return "Невозможно сохранить файл" if self.lang == "ru" else "Unable to save file"
 
     @property
     def sure_exit(self):
